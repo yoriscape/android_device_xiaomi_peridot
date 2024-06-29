@@ -79,6 +79,10 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             grep -q "libhidlbase_shim.so" "${2}" || "${PATCHELF}" --add-needed "libhidlbase_shim.so" "${2}"
             ;;
+        vendor/etc/media_codecs.xml|vendor/etc/media_codecs_cliffs_v0.xml|vendor/etc/media_codecs_performance_cliffs_v0.xml)
+            [ "$2" = "" ] && return 0
+            sed -i -E '/media_codecs_(google_audio|google_telephony|vendor_audio)/d' "${2}"
+            ;;
         # MiuiCamera
         system/lib64/libgui-xiaomi.so)
             patchelf --set-soname libgui-xiaomi.so "${2}"
