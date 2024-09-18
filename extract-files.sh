@@ -83,6 +83,10 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             sed -i -E '/media_codecs_(google_audio|google_c2|google_telephony|vendor_audio)/d' "${2}"
             ;;
+        vendor/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy)
+            [ "$2" = "" ] && return 0
+            grep -q "setsockopt: 1" "${2}" || echo "setsockopt: 1" >> "${2}"
+            ;;
         # MiuiCamera
         system/lib64/libgui-xiaomi.so)
             patchelf --set-soname libgui-xiaomi.so "${2}"
