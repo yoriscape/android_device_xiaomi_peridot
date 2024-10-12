@@ -61,8 +61,13 @@ function blob_fixup() {
         system_ext/etc/vintf/manifest/vendor.qti.qesdsys.service.xml)
             sed -i '1,6d' "${2}"
             ;;
+        system_ext/lib64/libwfdmmsrc_system.so)
+            [ "$2" = "" ] && return 0
+            grep -q "libgui_shim.so" "${2}" || "${PATCHELF}" --add-needed "libgui_shim.so" "${2}"
+            ;;
         system_ext/lib64/libwfdnative.so)
             ${PATCHELF} --remove-needed "android.hidl.base@1.0.so" "${2}"
+            grep -q "libinput_shim.so" "${2}" || "${PATCHELF}" --add-needed "libinput_shim.so" "${2}"
             ;;
         vendor/bin/init.qcom.usb.sh)
             sed -i 's/ro.product.marketname/ro.product.odm.marketname/g' "${2}"
