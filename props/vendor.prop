@@ -192,6 +192,11 @@ ro.com.android.dataroaming=true
 ro.vendor.radio.build_profile=miui
 ro.vendor.radio.build_region=global
 
+# SkiaGL Threaded
+debug.renderengine.backend=skiaglthreaded
+debug.hwui.renderer=skiagl
+renderthread.skia.reduceopstasksplitting=true 
+
 # SKU
 ro.boot.product.vendor.sku=cliffs
 
