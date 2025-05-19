@@ -33,14 +33,14 @@ cc_defaults {
 }
 
 cc_binary {
-    name: "android.hardware.boot-service.qti",
+    name: "android.hardware.boot-service.qti.peridot",
     defaults: ["android.hardware.boot-service.qti.common"],
     init_rc: ["android.hardware.boot-service.qti.rc"],
     vendor: true,
 }
 
 cc_binary {
-    name: "android.hardware.boot-service.qti.recovery",
+    name: "android.hardware.boot-service.qti.peridot.recovery",
     defaults: ["android.hardware.boot-service.qti.common"],
     init_rc: ["android.hardware.boot-service.qti.recovery.rc"],
     recovery: true,

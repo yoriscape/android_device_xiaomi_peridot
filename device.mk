@@ -110,8 +110,8 @@ PRODUCT_COPY_FILES += \
 
 # Boot control
 PRODUCT_PACKAGES += \
-    android.hardware.boot-service.qti \
-    android.hardware.boot-service.qti.recovery
+    android.hardware.boot-service.qti.peridot \
+    android.hardware.boot-service.qti.peridot.recovery
 
 # Camera
 PRODUCT_PACKAGES += \
